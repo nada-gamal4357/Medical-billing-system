@@ -7,7 +7,7 @@ Then it appears to the person if he wants to buy more, and in this case there ar
 1- If he chooses to buy more, the list will appear to him again, and the purchase process will be completed, and then the total cost of the two operations will be shown.
 2 - If the person chooses that he does not want to buy more, the cost will be shown to him.
 
-
+### the first part is definition part 
 ```
 .model small
 ```
