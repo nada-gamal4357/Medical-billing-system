@@ -23,6 +23,8 @@
 ### DT : Define TEN (10 Bytes ) unsupported in emulator
 
 ## Structure of definition of variables
+
+#### Name of the variable.                  Type of the variable.              Initialization 
 ```
-Name of the variable.                  Type of the variable.              Initialization 
+panadol   DB  10,13,' 1       Panadol              10EGP $'
 ```
