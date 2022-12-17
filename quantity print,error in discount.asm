@@ -122,7 +122,7 @@ ER_DISCOUNT:
     MOV AH,9
     INT 21H
     
-    LEA DX,EN_DIS               E 
+    LEA DX,EN_DIS               
     MOV AH,9
     INT 21H
     
