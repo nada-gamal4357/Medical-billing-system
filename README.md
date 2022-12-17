@@ -187,7 +187,7 @@ ERROR121:
      JE Pfi_zer 
 -if AL=9 go to Pfi_zer label
 
-## Third part is for print quantity,display errors in quantity input and discount
+### Third part is for print quantity,display errors in quantity input and discount
 
 -part 3
 
@@ -240,6 +240,16 @@ ASK:
 if user press on YES, this means he wants to buy again, the program will go to medicines menu and buy again.
 if user press on NO, this means he doesn't want to buy again,the progrm will go to output to calculate total price.
 if any error in input, it will ask user again to buy. 
+
+ERROR:
+    
+    LEA DX,ER_MSG                
+    MOV AH,9
+    INT 21H
+    
+    JMP QUANTITY 
+    
+   -this part will display the quantity input again if there is an error in quantity input
 
 ER_DISCOUNT:   
 
