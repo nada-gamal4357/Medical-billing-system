@@ -187,6 +187,7 @@ ERROR121:
      JE Pfi_zer 
 -if AL=9 go to Pfi_zer label
 
+## Third part is for print quantity,display errors in quantity input and discount
 
 -part 3
 
@@ -194,6 +195,7 @@ ERROR121:
 to use it in calculation of a price of any amount
 of medicines. 
 -display of quantity in the screen, errors in quantity ,errors in discount  and color codes.
+-Ask user for buying more.
 
 Pana_dol:                          
 MOV A,10
