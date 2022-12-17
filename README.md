@@ -186,3 +186,76 @@ ERROR121:
      CMP AL,57                   
      JE Pfi_zer 
 -if AL=9 go to Pfi_zer label
+
+
+-part 3
+
+-this part includes  the fill of all prices values in variable A 
+to use it in calculation of a price of any amount
+of medicines. 
+-display of quantity in the screen, errors in quantity ,errors in discount  and color codes.
+
+Pana_dol:                          
+MOV A,10
+JMP QUANTITY
+-this code means move value of price of panadol to A and then Jump to quantity 
+
+LEA DX,E_QUANTITY            
+    MOV AH,9
+    INT 21H 
+    JMP MULTI           
+-to display the quantity string and make calculations,then it will go 
+ to MULTI lebel where the price will be multiplied with the amount.
+
+ASK: 
+
+    MOV BL,11                     
+    MOV AH,9 
+    MOV AL,0  
+    INT 10H
+
+    LEA DX,AGAIN                 
+    MOV AH,9
+    INT 21H 
+    
+    MOV AH,1                    
+    INT 21H
+    
+    CMP AL,49                    
+    JE BEGINTOP
+    
+    CMP AL,50
+    JE OUTPUT2                   
+    
+    LEA DX,ER_MSG
+    MOV AH,9                     
+    INT 21H
+    
+    JMP ASK                      
+
+ 
+-ASK lebel is used to ask the user for buying more again:
+if user press on YES, this means he wants to buy again, the program will go to medicines menu and buy again.
+if user press on NO, this means he doesn't want to buy again,the progrm will go to output to calculate total price.
+if any error in input, it will ask user again to buy. 
+
+ER_DISCOUNT:   
+
+    LEA DX,ER_MSG                
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,NL                   
+    MOV AH,9
+    INT 21H
+    
+    LEA DX,EN_DIS                 
+    MOV AH,9
+    INT 21H
+    
+    JMP INPUT_SUB               
+
+-during user is entering discount, if wrong input is occurs ,error message will be displayed, program will jump 
+to input discount to make user able to enter the discount again.        
+
+
