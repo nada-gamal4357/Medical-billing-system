@@ -36,14 +36,13 @@ Then it appears to the person if he wants to buy more, and in this case there ar
 #### Name of the variable.                  Type of the variable.              Initialization 
 ```
 panadol   DB  10,13,' 1       Panadol              10EGP $'
-``
-
-
-
-
-
-
 ```
+
+
+
+
+
+
 The second part is print functions,color code and compare part
 Part 2
 -Transmits data to AX and then transmits data from AX to DS (Data Segment).
@@ -212,35 +211,30 @@ ERROR121:
      JE Pfi_zer 
 ```
 -if AL=9 go to Pfi_zer label
+
+
+# part 3
+## -this part includes  the fill of all prices values in variable A to use it in calculation of a price of any amount of medicines. 
+## -display of quantity in the screen, errors in quantity ,errors in discount  and color codes.
+## -this code means move value of price of panadol to A and then Jump to quantity
+
 ```
-
-
-
-
-
-
-### Third part is for print quantity,display errors in quantity input and discount
-
--part 3
-
--this part includes  the fill of all prices values in variable A 
-to use it in calculation of a price of any amount
-of medicines. 
--display of quantity in the screen, errors in quantity ,errors in discount  and color codes.
--Ask user for buying more.
-
 Pana_dol:                          
 MOV A,10
 JMP QUANTITY
--this code means move value of price of panadol to A and then Jump to quantity 
-
+```
+## -to display the quantity string and make calculations,then it will go to MULTI lebel where the price will be multiplied with the amount.
+```
 LEA DX,E_QUANTITY            
     MOV AH,9
     INT 21H 
-    JMP MULTI           
--to display the quantity string and make calculations,then it will go 
- to MULTI lebel where the price will be multiplied with the amount.
-
+    JMP MULTI  
+```
+## -ASK lebel is used to ask the user for buying more again:
+### if user press on YES, this means he wants to buy again, the program will go to medicines menu and buy again.
+### if user press on NO, this means he doesn't want to buy again,the progrm will go to output to calculate total price.
+### if any error in input, it will ask user again to buy. 
+```
 ASK: 
 
     MOV BL,11                     
@@ -265,25 +259,12 @@ ASK:
     MOV AH,9                     
     INT 21H
     
-    JMP ASK                      
-
- 
--ASK lebel is used to ask the user for buying more again:
-if user press on YES, this means he wants to buy again, the program will go to medicines menu and buy again.
-if user press on NO, this means he doesn't want to buy again,the progrm will go to output to calculate total price.
-if any error in input, it will ask user again to buy. 
-
-ERROR:
-    
-    LEA DX,ER_MSG                
-    MOV AH,9
-    INT 21H
-    
-    JMP QUANTITY 
-    
-   -this part will display the quantity input again if there is an error in quantity input
-
-ER_DISCOUNT:   
+    JMP ASK  
+ ```
+### -during user is entering discount, if wrong input is occurs ,error message will be displayed, program will jump 
+### to input discount to make user able to enter the discount again.  
+ ```
+  ER_DISCOUNT:   
 
     LEA DX,ER_MSG                
     MOV AH,9
@@ -297,9 +278,10 @@ ER_DISCOUNT:
     MOV AH,9
     INT 21H
     
-    JMP INPUT_SUB               
+    JMP INPUT_SUB       
+ ```
 
--during user is entering discount, if wrong input is occurs ,error message will be displayed, program will jump 
-to input discount to make user able to enter the discount again.        
+
+
 
 
