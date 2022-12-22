@@ -260,6 +260,16 @@ ASK:
     
     JMP ASK  
  ```
+### -if there is error in quantity input it will jump to quantity again 
+ ```
+ ERROR:
+    
+    LEA DX,ER_MSG                
+    MOV AH,9
+    INT 21H
+   JMP QUANTITY 
+                  
+ ```
 ### -during user is entering discount, if wrong input is occurs ,error message will be displayed, program will jump 
 ### to input discount to make user able to enter the discount again.  
  ```
