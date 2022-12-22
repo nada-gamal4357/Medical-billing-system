@@ -42,174 +42,174 @@ panadol   DB  10,13,' 1       Panadol              10EGP $'
 
 
 
-#Part 2
-##-The second part is print functions,color code and compare part
-##-Transmits data to AX and then transmits data from AX to DS (Data Segment).
-##-Define the variables, print them to the screen and print a new line.
-##-Determine the background colors and printed words, compare the value and move to the label of this value.
+# Part 2
+## -The second part is print functions,color code and compare part
+## -Transmits data to AX and then transmits data from AX to DS (Data Segment).
+## -Define the variables, print them to the screen and print a new line.
+## -Determine the background colors and printed words, compare the value and move to the label of this value.
 ```
       MOV AX, @DATA
       MOV DS, AX
 ```
-###-It transfers data to AX and then transfers data from AX to DS(Data segment) 
+### -It transfers data to AX and then transfers data from AX to DS(Data segment) 
 ```
      LEA DX,INTRO               
      MOV AH,9
      INT 21H
 ```
-###-print intro containing the title(Medical Billing Store)
+### -print intro containing the title(Medical Billing Store)
 ```
      LEA DX,NL                  
      MOV AH,9
     INT 21H
 ```
-###-print new line
+### -print new line
 ```
      JMP BEGINTOP
 ```  
-###-go to BEGINTOP lebel
+### -go to BEGINTOP lebel
 ```
 ERROR121:
      LEA DX,ER_MSG               
      MOV AH,9
      INT 21H  
 ```
-###-print error message
+### -print error message
 ```                           
      LEA DX,ERASK
      MOV AH,9
      INT 21H
 ```
-###-user will be asked to input again
+### -user will be asked to input again
 ``` 
      MOV BL,10                   
      MOV AH,9 
      MOV AL,0  
      INT 10H 
 ```
-###-code for color
-###-10 Light Green	
+### -code for color
+### -10 Light Green	
 ```   
      LEA DX,INFO                
      MOV AH,9 
      INT 21H                     
 ```
-###-print info string
+### -print info string
 ```   
      MOV BL,11                   
      MOV AH,9 
      MOV AL,0  
      INT 10H   
 ```
-###-code for color   
-###-11 Light Cyan	
+### -code for color   
+### -11 Light Cyan	
 ```
      LEA DX,Panadol              
      MOV AH,9
      INT 21H 
 ```
-###-Print Panadol string
+### -Print Panadol string
 ```              
      LEA DX,Paracetamol         
      MOV AH,9
      INT 21H  
 ```
-###-Print Paracetamol string  
+### -Print Paracetamol string  
 ```     
      LEA DX,Cleritek             
      MOV AH,9
      INT 21H    
 ````
-###-Print Cleritek string                      
+### -Print Cleritek string                      
 ```
      LEA DX,Aspirin             
      MOV AH,9
      INT 21H   
 ```
-###-Print Aspirin string 
+### -Print Aspirin string 
 ```                     
      LEA DX,Brufen              
      MOV AH,9
      INT 21H  
 ```
-###-Print Brufen string      
+### -Print Brufen string      
 ```              
      LEA DX,Surbex               
      MOV AH,9
      INT 21H 
 ```
-###-Print Surbex string      
+### -Print Surbex string      
 ```     
      LEA DX,Arinac               
      MOV AH,9
      INT 21H    
 ```
-###-Print Arinac string 
+### -Print Arinac string 
 ```      
      LEA DX,Sinopharm            
      MOV AH,9       
      INT 21H    
 ```
-###-Print Sinopharm string           
+### -Print Sinopharm string           
 ```   
      LEA DX,Pfizer               
      MOV AH,9       
      INT 21H    
 ```
-###-Print Pfizer string 
+### -Print Pfizer string 
 ```            
      LEA DX,ENTER                
      MOV AH,9       
      INT 21H    
 ```
-###-Print enter string      
+### -Print enter string      
      
-#This part compare value and jump to label of value
+# This part compare value and jump to label of value
 ```                            
      CMP AL,49                   
      JE Pana_dol
 ```
-###-if AL=1 go to pana_dol label 
+### -if AL=1 go to pana_dol label 
 ```  
      CMP AL,50                   
      JE Paraceta_mol
 ```
-###-if AL=2 go to Paraceta_mol label
+### -if AL=2 go to Paraceta_mol label
 ```     
      CMP AL,51                   
      JE Cleri_tek
 ```
-###-if AL=3 go to Cleri_tek label
+### -if AL=3 go to Cleri_tek label
 ```     
      CMP AL,52                  
      JE Aspi_rin
 ```
-###-if AL=4 go to Aspi_rin label
+### -if AL=4 go to Aspi_rin label
 ```     
      CMP AL,53                   
      JE Bru_fen
 ```
-###-if AL=5 go to Bru_fen label
+### -if AL=5 go to Bru_fen label
 ```     
      CMP AL,54                   
      JE Sur_bex
 ```
-###-if AL=6 go to Sur_bex label
+### -if AL=6 go to Sur_bex label
 ```     
      CMP AL,55                   
      JE Ari_nac
 ```
-###-if AL=7 go to Ari_nac label
+### -if AL=7 go to Ari_nac label
 ```     
      CMP AL,56                   
      JE Sino_pharm 
 ```
-###-if AL=8 go to Sino_pharm  label
+### -if AL=8 go to Sino_pharm  label
 ```     
      CMP AL,57                   
      JE Pfi_zer 
 ```
-###-if AL=9 go to Pfi_zer label
+### -if AL=9 go to Pfi_zer label
 
 
 # part 3
