@@ -7,6 +7,11 @@
 ### 1- If he chooses to buy more, the list will appear to him again, and the purchase process will be completed, and then the total cost of the two operations will be shown.
 ### 2 - If the person chooses that he does not want to buy more, the cost will be shown to him.
 
+## Flow chart
+
+<img src="https://user-images.githubusercontent.com/66281971/209209672-40558d6e-c54b-444f-9c00-f429417b696d.PNG" width="2000" height="1000">
+
+
 ### the first part is definition part 
 ```
 .model small
