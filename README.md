@@ -331,10 +331,10 @@ TAKEINPUT1 PROC
     AND AX,00FH                     
     PUSH AX                        
     
-    MOV AX,10                      
-    MUL BX                          
-    POP BX                          
-    ADD BX,AX                       
+    MOV AX,10                          -PUT AX=10
+    MUL BX                             -AX=TOTAL * 10                         
+    POP BX                             -GET DIGIT BACK
+    ADD BX,AX                          -TOTAL = TOTAL X 10 +DIGIT
     
     
     MOV AH,1
@@ -343,7 +343,7 @@ TAKEINPUT1 PROC
     CMP AL,13                      
     JNE CONVDIGIT1                     
     
-    MOV AX,BX                      
+    MOV AX,BX                        -STORE IN AX                 
     
     
     JMP MUL_
@@ -408,7 +408,7 @@ TAKEINPUT1 ENDP
     
     PUSH AX  
     
-    ADD S,AX 
+    ADD S,AX                         -CALCULATE FINAL TOTAL
     
     JMP OUTPUT
 ```
@@ -426,7 +426,7 @@ MUL_:
     MOV AL,0  
     INT 10H 
     
-    LEA DX,E_DISCOUNT                
+    LEA DX,E_DISCOUNT                              -PRINT ENTER DISCOUNT STRING              
     MOV AH,9
     INT 21H
     
