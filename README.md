@@ -1,11 +1,11 @@
 # Medical-billing
-Project Idea
-Project name: Medical-billing
-The idea of the project is an online store for a pharmacy, people enter it, and a list of available medicines and their prices is displayed, and each type of medicine has its own code.
-The person chooses the code of the medicine he wants to buy, then determines the quantity he wants, then the discount is entered, if there is.
-Then it appears to the person if he wants to buy more, and in this case there are two possibilities:
-1- If he chooses to buy more, the list will appear to him again, and the purchase process will be completed, and then the total cost of the two operations will be shown.
-2 - If the person chooses that he does not want to buy more, the cost will be shown to him.
+# Project Idea
+## Project name: Medical-billing
+####The idea of the project is an online store for a pharmacy, people enter it, and a list of available medicines and their prices is displayed, and each type of medicine has its own code.
+####The person chooses the code of the medicine he wants to buy, then determines the quantity he wants, then the discount is entered, if there is.
+####Then it appears to the person if he wants to buy more, and in this case there are two possibilities:
+####1- If he chooses to buy more, the list will appear to him again, and the purchase process will be completed, and then the total cost of the two operations will be shown.
+####2 - If the person chooses that he does not want to buy more, the cost will be shown to him.
 
 ### the first part is definition part 
 ```
