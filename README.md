@@ -307,19 +307,13 @@ TAKEINPUT1 PROC
     PUSH CX
     PUSH DX
 
-    
-    
     XOR BX,BX                       
-    
     XOR CX,CX                       
                     
-    
     MOV AH,1                        
     INT 21H
 
-
-    
-    CONVDIGIT1: 
+   CONVDIGIT1: 
                                      
     CMP AL,48                      
     JL ERROR
@@ -327,9 +321,8 @@ TAKEINPUT1 PROC
     CMP AL,57                       
     JG ERROR
 
-
-    AND AX,00FH                     
-    PUSH AX                        
+    AND AX,00FH                         -convert to digit              
+    PUSH AX                              -save on stak                       
     
     MOV AX,10                          -PUT AX=10
     MUL BX                             -AX=TOTAL * 10                         
@@ -353,16 +346,14 @@ TAKEINPUT1 PROC
     POP BX
     RET                             
     
-    
-
 TAKEINPUT1 ENDP 
 ```
+
 
 ### -this function   is responsible  to add last value into present value 
 
 ```
     ADD_: 
-
 
     MOV B,AX  
     
@@ -377,15 +368,15 @@ TAKEINPUT1 ENDP
     MOV AX,B                         
     ADD A,AX                         
     
-    
-    MOV AX,A                         
-    
+     MOV AX,A                         
     PUSH AX                          
     
     
     JMP END
 ```
-### - this part responsible to calculate discount and total price 
+
+### - this part responsible to calculate discount and total price
+
 ```
    SUB_:
 
@@ -412,14 +403,14 @@ TAKEINPUT1 ENDP
     
     JMP OUTPUT
 ```
-### - this part responsible to calculate peresent price 
+
+### - this part responsible to calculate peresent price
+
 ```
 
 MUL_: 
 
-
-   
-    MOV B,AX             
+   MOV B,AX             
     
     MOV BL,4
     MOV AH,9                         
