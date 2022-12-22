@@ -1,6 +1,4 @@
 
-
-
 .MODEL SMALL
 .STACK 100H
 .DATA       
@@ -8,8 +6,7 @@
 ;DECLARED STRINGS
 
 INTRO DB '******************** Medical Billing Online System ************************$',10,13
-
-                              
+                           
 
 ENTER DB 10,13,'PLEASE ENTER THE CODE WHAT YOU WANT TO BUY: $'
 
@@ -60,15 +57,7 @@ C DW ?
 S DW 0
                                  
 NL DB 10,13,'$'                ;NEW LINE
-
-     
-     
-     
-
-
-
-     
-     
+ 
 
 .CODE
   
@@ -238,17 +227,9 @@ NL DB 10,13,'$'                ;NEW LINE
      
     
      
-     
-     JMP  ERRORINPUT                ;IF WRONG KEYWORD IS PRESSED THEN THE MEDICINESLIST WILL SHOW AGAIN 
+      JMP  ERRORINPUT                ;IF WRONG KEYWORD IS PRESSED THEN THE MEDICINESLIST WILL SHOW AGAIN 
  
- 
- 
-
- 
- 
- 
-     
-  
+   
 Pana_dol:
                                  
 MOV A,10                        ;PRICE OF Panadol IS MOVED TO A WHERE PRICE IS 10
@@ -372,11 +353,6 @@ ER_DISCOUNT:
     
     JMP INPUT_SUB                ;JUMP TO INPUT OF DISCOUNT 
  
- 
- 
-  
- 
-    
     
 MULTI:         
 
@@ -442,9 +418,6 @@ TAKEINPUT1 PROC                    ;TAKEINPUT1 TAKES QUANTITY AND CONVERT IT TO 
 TAKEINPUT1 ENDP                      ;END OF TAKEINPUT1 
 
 
-
-
-
 ADD_:                                
 
 
@@ -508,11 +481,8 @@ SUB_:
     JMP OUTPUT
 
 MUL_:
-
  
 ;TO CALCULATE PRESENT PRICE
-
-
 
 ;SECOND VALUE STORED IN B
 
@@ -547,11 +517,7 @@ MUL_:
     JMP OUTPUT  
     
     
-      
-    
-    
-                                          
-INPUT_ADD: 
+ INPUT_ADD: 
 
 TAKEINPUT2 PROC                      ;TAKEINPUT2 PROC IS FOR ADDING THE PRESENT PRICE INTO TOTAL 
     
@@ -670,15 +636,7 @@ TAKEINPUT3 PROC
 
 TAKEINPUT3 ENDP 
 
-
- 
- 
-
-
-    
 OUTPUT:         
-         
-         
 ;OUTDEC PROC IS FOR GIVING THE OUTPUT OF THE PRESENT AMOUNT
 
 
