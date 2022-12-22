@@ -5,42 +5,42 @@
     
 OUTPUT:         
 
-;CONVCHAR1 PROC IS FOR GIVING THE OUTPUT OF THE PRESENT AMOUNT
+
 
 CONVCHAR1 PROC
     
     
-    PUSH AX                          ;SAVE REGISTERS
+    PUSH AX                          
     PUSH BX
     PUSH CX
     PUSH DX
     
-    XOR CX,CX                        ;CX COUNTS DIGITS
-    MOV BX,10                       ;BX HAS DIVISOR
+    XOR CX,CX                        
+    MOV BX,10                       
     
     REPEAT1:
     
-    XOR DX,DX                        ;PREP HIGH WORD
-    DIV BX                           ;AX = QUOTIENT, DX=REMAINDER
+    XOR DX,DX                        
+    DIV BX                           
     
-    PUSH DX                          ;SAVE REMAINDER ON STACK
-    INC CX                           ;COUNT = COUNT +1
+    PUSH DX                          
+    INC CX                           
     
-    OR AX,AX                         ;QUOTIENT = 0?
-    JNE REPEAT1                      ;NO, KEEP GOING
+    OR AX,AX                         
+    JNE REPEAT1                      
     
     MOV AH,2
-                                    ;PRINT CHAR FUNCTION
+                                    
     
     PRINT_LOOP:
     
-    POP DX                           ;DIGIT IN DL
-    OR DL,30H                        ;CONVERT TO CHAR
-    INT 21H                          ;PRINT DIGIT
-    LOOP PRINT_LOOP                  ;LOOP UNTILL DONE
+    POP DX                           
+    OR DL,30H                        
+    INT 21H                          
+    LOOP PRINT_LOOP                  
     
     POP DX
-    POP CX                           ;RESTORE REGISTERS
+    POP CX                           
     POP BX
     POP AX 
     
@@ -51,51 +51,51 @@ CONVCHAR1 PROC
 
 OUTPUT2: 
 
-    LEA DX,TOTAL_PRICE                        ;PRINT FINAL TOTAL
+    LEA DX,TOTAL_PRICE                        
     MOV AH,9
     INT 21H
     
-    XOR AX,AX                        ;CLEAR AX
+    XOR AX,AX                        
     
-    MOV AX,S                         ;SET AX INTO 0
+    MOV AX,S                         
     
     
-    ;CONVCHAR2 IS FOR GIVING THE TOTAL OUTPUT OF THE AMOUNT
+    
     
                                      
 CONVCHAR2 PROC
     
     
-    PUSH AX                          ;SAVE REGISTERS
+    PUSH AX                          
     PUSH BX
     PUSH CX
     PUSH DX
 
-    XOR CX,CX                        ;CX COUNTS DIGITS
-    MOV BX,10                       ;BX HAS DIVISOR
+    XOR CX,CX                        
+    MOV BX,10                       
     
     REPEAT12:
     
-    XOR DX,DX                        ;PREP HIGH WORD
-    DIV BX                           ;AX = QUOTIENT, DX=REMAINDER
+    XOR DX,DX                        
+    DIV BX                           
     
-    PUSH DX                          ;SAVE REMAINDER ON STACK
-    INC CX                           ;COUNT = COUNT +1
+    PUSH DX                           
+    INC CX                           
     
-    OR AX,AX                         ;QUOTIENT = 0?
-    JNE REPEAT12                     ;NO, KEEP GOING
+    OR AX,AX                         
+    JNE REPEAT12                     
     
-    MOV AH,2                         ;PRINT CHAR FUNCTION
+    MOV AH,2                         
     
     PRINT_LOOP2:
     
-    POP DX                           ;DIGIT IN DL
-    OR DL,30H                        ;CONVERT TO CHAR
-    INT 21H                          ;PRINT DIGIT
-    LOOP PRINT_LOOP2                 ;LOOP UNTILL DONE
+    POP DX                           
+    OR DL,30H                        
+    INT 21H                         
+    LOOP PRINT_LOOP2                 
     
     POP DX
-    POP CX                           ;RESTORE REGISTERS
+    POP CX                           
     POP BX
     POP AX 
     
