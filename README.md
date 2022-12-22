@@ -427,15 +427,11 @@ MUL_:
     
     MUL A                            
     
-    
     PUSH AX                          
     
     MOV A,AX 
    
-                                     
-    JMP INPUT_SUB                    
-    
-    
+   JMP INPUT_SUB                    
     
     JMP OUTPUT  
 ```
