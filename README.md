@@ -1,16 +1,11 @@
-# Medical Billing Online System
+# Medical-billing
 # Project Idea
-### Project name: Medical Billing Online System
-### The idea of the project is an online store for a pharmacy, people enter it, and a list of available medicines and their prices is displayed, and each type of medicine has its own code.
-### The person chooses the code of the medicine he wants to buy, then determines the quantity he wants, then the discount is entered, if there is.
-### Then it appears to the person if he wants to buy more, and in this case there are two possibilities:
-### 1- If he chooses to buy more, the list will appear to him again, and the purchase process will be completed, and then the total cost of the two operations will be shown.
-### 2 - If the person chooses that he does not want to buy more, the cost will be shown to him.
-
-## Flow chart
-
-<img src="https://user-images.githubusercontent.com/66281971/209209672-40558d6e-c54b-444f-9c00-f429417b696d.PNG" width="2000" height="1000">
-
+Project name: Medical-billing
+The idea of the project is an online store for a pharmacy, people enter it, and a list of available medicines and their prices is displayed, and each type of medicine has its own code.
+The person chooses the code of the medicine he wants to buy, then determines the quantity he wants, then the discount is entered, if there is.
+Then it appears to the person if he wants to buy more, and in this case there are two possibilities:
+1- If he chooses to buy more, the list will appear to him again, and the purchase process will be completed, and then the total cost of the two operations will be shown.
+2 - If the person chooses that he does not want to buy more, the cost will be shown to him.
 
 ### the first part is definition part 
 ```
@@ -265,16 +260,6 @@ ASK:
     
     JMP ASK  
  ```
-### -if there is error in quantity input it will jump to quantity again 
- ```
- ERROR:
-    
-    LEA DX,ER_MSG                
-    MOV AH,9
-    INT 21H
-   JMP QUANTITY 
-                  
- ```
 ### -during user is entering discount, if wrong input is occurs ,error message will be displayed, program will jump 
 ### to input discount to make user able to enter the discount again.  
  ```
@@ -297,5 +282,117 @@ ASK:
 
 
 
+# part 4
 
+# this part is used to calculate medical billing system calculations its divided into sub functions:
+
+## -first part is used to convert character to digit
+## -second part is used to calculate the total price (total price=present price + last price ) 
+## -third part is used to calculate discount (present price=price-discount)
+## -forth part is used to multiply the price in quantity to get price without discount
+
+### This part is responsible for taking the quantity from the customer, examining it and converting it from a char to a digit
+```
+
+      MULTI:         
+
+    MOV BL,11                       
+    MOV AH,9 
+    MOV AL,0  
+    INT 10H    
+
+TAKEINPUT1 PROC                        
+    
+    PUSH BX                         
+    PUSH CX
+    PUSH DX
+
+    
+    
+    XOR BX,BX                       
+    
+    XOR CX,CX                       
+                    
+    
+    MOV AH,1                        
+    INT 21H
+
+
+    
+    CONVDIGIT1: 
+                                     
+    CMP AL,48                      
+    JL ERROR
+    
+    CMP AL,57                       
+    JG ERROR
+
+
+    AND AX,00FH                     
+    PUSH AX                        
+    
+    MOV AX,10                      
+    MUL BX                          
+    POP BX                          
+    ADD BX,AX                       
+    
+    
+    MOV AH,1
+    INT 21H
+    
+    CMP AL,13                      
+    JNE CONVDIGIT1                     
+    
+    MOV AX,BX                      
+    
+    
+    JMP MUL_
+    
+    POP DX                         
+    POP CX
+    POP BX
+    RET                             
+    
+    
+
+TAKEINPUT1 ENDP 
+```
+
+### this function   is responsible used to add last value into present value 
+
+```
+    ADD_: 
+
+
+    MOV B,AX  
+    
+    MOV BL,4                         
+    MOV AH,9 
+    MOV AL,0  
+    INT 10H 
+    
+    
+    XOR AX,AX                        
+    
+    MOV AX,B                         
+    ADD A,AX                         
+    
+    
+    MOV AX,A                         
+    
+    PUSH AX                          
+    
+    
+    JMP END
+```
+ 
+          
+          
+          
+          
+          
+          
+          
+          
+          
 
