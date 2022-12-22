@@ -358,7 +358,7 @@ TAKEINPUT1 PROC
 TAKEINPUT1 ENDP 
 ```
 
-### this function   is responsible used to add last value into present value 
+### -this function   is responsible  to add last value into present value 
 
 ```
     ADD_: 
@@ -385,8 +385,69 @@ TAKEINPUT1 ENDP
     
     JMP END
 ```
- 
-          
+### - this part responsible to calculate discount and total price 
+```
+   SUB_:
+
+
+  
+    MOV B,AX 
+    
+    LEA DX,PRESENT_PRICE                         
+    MOV AH,9
+    INT 21H
+    
+    
+    XOR AX,AX                       
+    
+    MOV AX,B                        
+    SUB A,AX                         
+    
+    
+    MOV AX,A                        
+    
+    PUSH AX  
+    
+    ADD S,AX 
+    
+    JMP OUTPUT
+```
+### - this part responsible to calculate peresent price 
+```
+
+MUL_: 
+
+
+   
+    MOV B,AX             
+    
+    MOV BL,4
+    MOV AH,9                         
+    MOV AL,0  
+    INT 10H 
+    
+    LEA DX,E_DISCOUNT                
+    MOV AH,9
+    INT 21H
+    
+    XOR AX,AX                        
+    
+    MOV AX,B
+    
+    MUL A                            
+    
+    
+    PUSH AX                          
+    
+    MOV A,AX 
+   
+                                     
+    JMP INPUT_SUB                    
+    
+    
+    
+    JMP OUTPUT  
+```
           
           
           
