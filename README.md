@@ -494,7 +494,8 @@ TAKEINPUT3 PROC
 ### - end the program after the user does not want to request anything else.
 
 ### - This code is for converting digits to characters, it takes digit by digit to convert it to character to display on the screen
-### - make this conversion by division by 10 and takes the result in register AX and the remainder on DX, remainder is the digit that we want to convert to character ### and repeats the division by using loop untile the digits ends.
+### - make this conversion by division by 10 and takes the result in register AX and the remainder on DX, remainder is the digit that we want to convert to character 
+### and repeats the division by using loop untile the digits ends.
 ### - then takes digit to convert to character by making OR opertion between the digit and 30H and then display thoses characters on screen.
 
 
