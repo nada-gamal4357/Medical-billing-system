@@ -602,3 +602,7 @@ INT 21H
 
 
 ```
+# the output of the program 
+## when we run the program output that 
+< img src="https://user-images.githubusercontent.com/65904654/209335551-5a6373ed-1254-4e94-9584-894650c8b0b9.jpeg" width ="150" >
+
