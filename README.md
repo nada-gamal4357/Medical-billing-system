@@ -620,3 +620,8 @@ INT 21H
 <img src="https://user-images.githubusercontent.com/66257504/209338704-5d6845a1-9b78-4044-8720-53b973f48503.PNG" width="700">
 </div>
 
+## when we press no the total price output wii display
+<div>
+<img src="https://user-images.githubusercontent.com/66257504/209339566-4f4d69ef-5010-40ef-86a2-3b0cc676f8c3.PNG" width="700">
+</div>
+
