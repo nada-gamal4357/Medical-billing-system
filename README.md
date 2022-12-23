@@ -606,5 +606,7 @@ INT 21H
 ```
 # the output of the program 
 ## when we run the program output that 
-< img src="https://user-images.githubusercontent.com/65904654/209335551-5a6373ed-1254-4e94-9584-894650c8b0b9.jpeg" width ="150" >
+<div>
+<img src="https://user-images.githubusercontent.com/66257504/209337561-dcffa10f-0c9a-4de5-baf4-c7c1778ae26e.PNG" width="700">
+</div>
 
