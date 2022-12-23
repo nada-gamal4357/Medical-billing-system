@@ -435,9 +435,32 @@ MUL_:
     
     JMP OUTPUT  
 ```
-          
-          
-          
+ 
+ # part 5
+ ## - This part will take the input of add and sub and convert it into digits to make calculations.
+ ### -this code takes the present price to convert it to digits to add it into the last price.
+ 
+ ```         
+ INPUT_ADD: 
+
+TAKEINPUT2 PROC                          
+    
+    PUSH BX                          
+    PUSH CX
+    PUSH DX
+    
+        
+    BEGIN1:
+    
+    
+    XOR BX,BX                        
+    
+    XOR CX,CX                        
+                    
+    
+    MOV AH,1                         
+    INT 21H
+    
           
           
           
