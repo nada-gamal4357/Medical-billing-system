@@ -460,10 +460,28 @@ TAKEINPUT2 PROC
     
     MOV AH,1                         
     INT 21H
+     ```
+  ### - this code takes the discount to convert it to digits to subtract it from the price to give the present price. 
+  
+   ```
+   INPUT_SUB: 
+
+TAKEINPUT3 PROC
     
+    PUSH BX                          
+    PUSH CX
+    PUSH DX
+    
+    
+    
+    XOR BX,BX                        
+    
+    XOR CX,CX                        
+                    
+
+    MOV AH,1                         
+    INT 21H       
           
           
-          
-          
-          
+   ```        
 
