@@ -491,5 +491,56 @@ TAKEINPUT3 PROC
 ### - second part to display the total output price after the addition of all prices that the user asked for all the medicines he wanted.
 ### - end the program after the user does not want to request anything else.
 
+### - This code is for converting digits to characters, it takes digit by digit to convert it to character to display on the screen
+### - make this conversion by division by 10 and takes the result in register AX and the remainder on DX, remainder is the digit that
+### we want to convert to character and repeats the division by using loop untile the digits ends.
+### - then takes digit to convert to character by making OR opertion between the digit and 30H and then display thoses characters on screen.
+
+
+```
+ OUTPUT:         
+         
+CONVCHAR1 PROC
+    
+    
+    PUSH AX                          
+    PUSH BX
+    PUSH CX
+    PUSH DX
+    
+    XOR CX,CX                        
+    MOV BX,10                        
+    
+    REPEAT1:
+    
+    XOR DX,DX                       
+    DIV BX                           
+    
+    PUSH DX                          
+    INC CX                           
+    
+    OR AX,AX                         
+    JNE REPEAT1                      
+    
+    MOV AH,2
+                                     
+    
+    PRINT_LOOP:
+    
+    POP DX                           
+    OR DL,30H                        
+    INT 21H                         
+    LOOP PRINT_LOOP                  
+    
+    POP DX
+    POP CX                           
+    POP BX
+    POP AX 
+    
+    JMP ASK
+    
+    RET
+    CONVCHAR1 ENDP
+ ```
 
 
