@@ -610,3 +610,8 @@ INT 21H
 <img src="https://user-images.githubusercontent.com/66257504/209337561-dcffa10f-0c9a-4de5-baf4-c7c1778ae26e.PNG" width="700">
 </div>
 
+## when we press any  code number and enter the quantity ouput that 
+<div>
+<img src="https://user-images.githubusercontent.com/66257504/209338230-fada8f54-7c44-4f0f-9f28-498f78e7da91.PNG" width="700">
+</div>
+
