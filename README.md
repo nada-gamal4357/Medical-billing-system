@@ -541,8 +541,8 @@ CONVCHAR1 PROC
     RET
     CONVCHAR1 ENDP
  ```
-### This code to display the total output price.
-### CONVCHAR2 is to convert total output of price to character to display on screen.
+### - This code to display the total output price.
+### - CONVCHAR2 is to convert total output of price to character to display on screen.
  ```
  OUTPUT2: 
 
@@ -593,3 +593,12 @@ CONVCHAR2 PROC
 
     CONVCHAR2 ENDP 
  ```
+ ### - This code for end the total program.
+```
+END:                                 
+MOV AH, 4CH                  
+INT 21H
+
+
+
+```
